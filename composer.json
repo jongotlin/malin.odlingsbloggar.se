@@ -1,6 +1,10 @@
 {
   "repositories": [
     {
+      "type":"composer",
+      "url":"http://wpackagist.org"
+    },
+    {
       "type": "package",
       "package": {
         "name": "wordpress",
@@ -14,14 +18,33 @@
           "fancyguy/webroot-installer": "1.1.0"
         }
       }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "organique",
+        "type": "wordpress-theme",
+        "require": {
+          "composer/installers": "~1.0"
+        },
+        "version": "0.9.6.2",
+        "dist": {
+          "type": "zip",
+          "url": "http://naturalsoapblog.com/organique/organique0.9.6.2.zip"
+        }
+      }
     }
   ],
   "require": {
     "php": ">=5.3.0",
-    "wordpress": "3.8.1"
+    "wordpress": "3.8.1",
+    "organique": "0.9.6.2"
   },
   "extra": {
     "webroot-dir": "wp",
-    "webroot-package": "wordpress"
+    "webroot-package": "wordpress",
+    "installer-paths": {
+      "wp/wp-content/themes/{$name}": ["organique"]
+    }
   }
 }
